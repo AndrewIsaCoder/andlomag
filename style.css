@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --orange: #D97D55;
+    --white : #F4E9D7;
+    --green: #B8C4A9;
+    --blue: #6FA4AF;
+}
+
+body{
+  font-family: "Red Hat Display", sans-serif;
+  background-color: var(--orange);
+  height: 100vh;
+}
+
+.products-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 50px;
+}
+
+
+.product-card{
+    background-color: white;
+    border: 2px solid var(--blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    width: 10vw;
+    padding: 5px;
+}
+
+.product-card img{
+    width: 80%;
+    height: 20vh;
+    object-fit: cover;
+}
+
+.product-info h3{
+    margin: 10px 0;
+    font-size: 18px;
+    color: var(--green);
+}
+
+.price {
+    color: var(--blue);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.buttons {
+display: flex;
+justify-content: space-around;
+}
+
+.buttons button{
+    border:none;
+    padding: 8px 14px;
+    border-radius: 16px;
+    cursor: pointer;
+    background-color: var(--green);
+}
+
+.logo{
+    text-align: center;
+}
