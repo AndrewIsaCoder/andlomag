@@ -1,22 +1,22 @@
-window.addEventListener('DOMContentLoaded', renderTable);
+window.addEventListener("DOMContentLoaded", renderTable);
 
-const URL = 'https://68e3ed6d8e116898997a7740.mockapi.io/products';
+const URL = "https://68e3ed6d8e116898997a7740.mockapi.io/products";
 
-const tableBody = document.querySelector('#products-table tbody');
-const addBtn = document.querySelector('#add-btn');
+const tableBody = document.querySelector("#products-table tbody");
+const addBtn = document.querySelector("#add-btn");
 
 function renderTable() {
-	fetch(URL)
-		.then((response) => response.json())
-		.then((products) => {
-			tableBody.innerHTML = products
-				.map(
-					(product, index) =>
-						`
+  fetch(URL)
+    .then((response) => response.json())
+    .then((products) => {
+      tableBody.innerHTML = products
+        .map(
+          (product, index) =>
+            `
             <tr data-id=${product.id}>
                <td>${index + 1}</td>
                <td class="cell-img">
-                  <img src=${products.imageURL} />
+                  <img src=${product.imageURL} />
                </td>
                <td class="cell-name">
                   ${product.name}
@@ -36,30 +36,30 @@ function renderTable() {
                </td>
             </tr>
             `
-				)
-				.join('');
-		});
+        )
+        .join("");
+    });
 }
 
-addBtn.addEventListener('click', addNewProduct);
+addBtn.addEventListener("click", addNewProduct);
 
 function addNewProduct(e) {
-	e.preventDefault();
-	const name = document.getElementById('name').value;
-	const price = document.getElementById('price').value;
-	const imageURL = document.getElementById('imageURL').value;
-	const description = document.getElementById('description').value;
+  e.preventDefault();
+  const name = document.getElementById("name").value;
+  const price = document.getElementById("price").value;
+  const imageURL = document.getElementById("imageURL").value;
+  const description = document.getElementById("description").value;
 
-	const newProduct = {
-		name: name,
-		price: price,
-		imageURL: imageURL,
-		details: description,
-	};
+  const newProduct = {
+    name: name,
+    price: price,
+    imageURL: imageURL,
+    details: description,
+  };
 
-	fetch(URL, {
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify(newProduct),
-	}).then((response) => renderTable());
+  fetch(URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(newProduct),
+  }).then((response) => renderTable());
 }
