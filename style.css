@@ -6,10 +6,10 @@
 }
 
 :root {
-	--green: #84994f;
-	--yellow: #fef4d4;
-	--orange: #fcb53b;
-	--red: #b45253;
+	--green: #0A84FF; 
+	--yellow: #F5F7FA; 
+	--orange: #FF9500;
+	--red: #FF3B30; 
 }
 
 body {
@@ -19,20 +19,17 @@ body {
 }
 
 .products-container {
-	position: relative;
 	padding: 50px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	gap: 20px;
+}
+
+.products-container,
+.admin-container {
+	position: relative;
 	top: 70px;
 }
-
-
-.products-container , .admin-container{
-position: relative;
-top: 70px;
-}
-
 
 .product-card {
 	background-color: white;
@@ -140,14 +137,18 @@ top: 70px;
 	right: 30px;
 }
 
-#add-form{
+#add-form {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
 	padding: 20px;
 }
 
-#name , #price , #imageURL , #description,#add-btn{
+#name,
+#price,
+#imageURL,
+#description,
+#add-btn {
 	border-radius: 5px;
 	padding: 10px;
 	border: none;
@@ -155,28 +156,38 @@ top: 70px;
 	outline: none;
 }
 
-#description{
+#description {
 	min-height: 50px;
 	resize: vertical;
 }
 
-#add-btn{
+#add-btn {
 	background-color: var(--red);
 	color: white;
 	cursor: pointer;
 	opacity: 0.9;
 }
 
-#add-btn:hover{
-opacity: 1;
+#add-btn:hover {
+	opacity: 1;
 }
 
-#products-table{
-	width: 90%;
+#products-table {
+	width: 100%;
 	padding: 10px;
 }
 
-#products-table thead th{
+#products-table thead th,
+#products-table tbody td {
 	padding: 10px;
 	border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#products-table tbody tr td {
+	text-align: center;
+}
+
+.cell-img img {
+	height: 60px;
+	width: 60px;
 }
