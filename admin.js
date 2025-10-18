@@ -63,3 +63,17 @@ function addNewProduct(e) {
     body: JSON.stringify(newProduct),
   }).then((response) => renderTable());
 }
+
+tableBody.addEventListener("click" , handleActions);
+
+function handleActions(e) {
+   const clickedElement = e.target;
+   if(clickedElement.parentElement.classList.contains("edit")) {
+      const productId = getTableRow(clickedElement).dataset.id;
+      console.log(productId);
+   }
+}
+
+function getTableRow(editIcon) {
+   return editIcon.parentElement.parentElement.parentElement.parentElement
+}
